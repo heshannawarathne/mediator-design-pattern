@@ -14,6 +14,7 @@ class AirportControllerTower implements AirTrafficController {
     @Override
     public void requestTakeOff(Flight f) {
         System.out.println("Flight : " + f.getNumber() + "request permission to take off");
+        notifyFlight("Take-off approved", f);
     }
 
     @Override
