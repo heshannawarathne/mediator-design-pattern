@@ -31,22 +31,45 @@ class AirportControllerTower implements AirTrafficController {
 
 abstract class Flight {
     private String number;
+    private AirTrafficController airTrafficController;
 
     public String getNumber() {
         return number;
     }
 
     public void requestTakeoff() {
-
+        airTrafficController.requestTakeOff(this);
     }
 
     public void requestLanding() {
-
+        airTrafficController.requestLanding(this);
     }
 
     public abstract void receiveMessage(String message);
 }
 
+class FlightA extends Flight {
+    public FlightA(String number, AirTrafficController airTrafficController) {
+
+    }
+
+    @Override
+    public void receiveMessage(String message) {
+        System.out.println(getNumber() + " new message: " + message);
+    }
+}
+
+class FlightB extends Flight {
+    public FlightB(String number, AirTrafficController airTrafficController) {
+
+    }
+
+    @Override
+    public void receiveMessage(String message) {
+        System.out.println(getNumber() + " new message: " + message);
+
+    }
+}
 
 public class Test {
 }
